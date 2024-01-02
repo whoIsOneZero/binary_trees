@@ -1,4 +1,6 @@
 binary_tree_print.c
 *.swp
 *a.out
+*a.exe
 /.vscode
+*main.c
