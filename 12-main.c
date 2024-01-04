@@ -20,13 +20,13 @@ int main(void)
     binary_tree_print(root);
 
     leaves = binary_tree_leaves(root);
-    printf("Leaves in %d: %u\n", root->n, leaves);
+    printf("Leaves in %d: %lu\n", root->n, leaves);
     leaves = binary_tree_leaves(root->right);
-    printf("Leaves in %d: %u\n", root->right->n, leaves);
+    printf("Leaves in %d: %lu\n", root->right->n, leaves);
     leaves = binary_tree_leaves(root->left->right);
-    printf("Leaves in %d: %u\n", root->left->right->n, leaves);
+    printf("Leaves in %d: %lu\n", root->left->right->n, leaves);
     leaves = binary_tree_leaves(root->right->right);
-    printf("Leaves in %d: %u\n", root->right->right->n, leaves);
+    printf("Leaves in %d: %lu\n", root->right->right->n, leaves);
 
     return (0);
 }

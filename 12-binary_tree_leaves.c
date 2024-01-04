@@ -8,15 +8,17 @@
  */
 size_t binary_tree_leaves(const binary_tree_t *tree)
 {
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    if (tree->left == NULL && tree->right == NULL)
+	if (tree->left == NULL && tree->right == NULL)
 	{
-        /*Count this node and move to the children*/
-        return (1 + binary_tree_leaves(tree->left) + binary_tree_leaves(tree->right));
+		/*Count this node and move to the children*/
+		return (1 + binary_tree_leaves(tree->left) +
+			binary_tree_leaves(tree->right));
 	}
 
-    /*Don't count this node. Move to children*/
-    return (binary_tree_leaves(tree->left) + binary_tree_leaves(tree->right));
+	/*Don't count this node. Move to children*/
+	return (binary_tree_leaves(tree->left) +
+			binary_tree_leaves(tree->right));
 }
