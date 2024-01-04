@@ -11,19 +11,19 @@ int _binary_tree_height(const binary_tree_t *tree);
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-    int left, right;
+	int left, right;
 
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    /*Get height of left child*/
-    left = _binary_tree_height(tree->left);
-    /*Get height of right child*/
-    right = _binary_tree_height(tree->right);
+	/*Get height of left child*/
+	left = _binary_tree_height(tree->left);
+	/*Get height of right child*/
+	right = _binary_tree_height(tree->right);
 
-    /* printf("Left: %d.\nRight: %d.\n", left, right); */
+	/* printf("Left: %d.\nRight: %d.\n", left, right); */
 
-    return (left - right);
+	return (left - right);
 }
 
 
@@ -39,9 +39,9 @@ int _binary_tree_height(const binary_tree_t *tree)
 	int rt_height = 0;
 
 	if (tree == NULL)
-        return (-1);
-	
-    if (tree->left == NULL && tree->right == NULL)
+		return (-1);
+
+	if (tree->left == NULL && tree->right == NULL)
 		return (0);
 
 	/*Recursively call the func to calc. the height*/
