@@ -17,6 +17,10 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
+	/*Only one node*/
+	if (!tree->left && !tree->right)
+		return (1);
+
 	lt_child_size = _binary_tree_size(tree->left);
 	rt_child_size = _binary_tree_size(tree->right);
 	/*If left-subtree and right-subtree have equal sizes*/
