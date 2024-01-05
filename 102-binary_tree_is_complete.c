@@ -7,38 +7,38 @@ int _binary_tree_is_perfect(const binary_tree_t *tree);
 
 /**
  * binary_tree_is_complete - checks if a binary tree is complete.
- * 
+ *
  * @tree: ptr to the root node.
  * Return: 1 - tree isComplete, otherwise 0.
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-    int lt_height, rt_height;
-    binary_tree_t *l, *r;
+	int lt_height, rt_height;
+	binary_tree_t *l, *r;
 
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    if (_binary_tree_is_leaf(tree))
-        return (1);
+	if (_binary_tree_is_leaf(tree))
+		return (1);
 
-    l = tree->left;
-    r = tree->right;
-    lt_height = _binary_tree_height(l);
-    rt_height = _binary_tree_height(r);
+	l = tree->left;
+	r = tree->right;
+	lt_height = _binary_tree_height(l);
+	rt_height = _binary_tree_height(r);
 
-    if (lt_height == rt_height)
-    {
-        if (binary_tree_is_complete(r) && _binary_tree_is_perfect(l))
-            return(1);
-    }
-    else if (lt_height == rt_height + 1)
-    {
-        if (binary_tree_is_complete(l) && _binary_tree_is_perfect(r))
-            return(1);
-    }
+	if (lt_height == rt_height)
+	{
+		if (binary_tree_is_complete(r) && _binary_tree_is_perfect(l))
+			return (1);
+	}
+	else if (lt_height == rt_height + 1)
+	{
+		if (binary_tree_is_complete(l) && _binary_tree_is_perfect(r))
+			return (1);
+	}
 
-    return(0);
+	return (0);
 }
 
 
