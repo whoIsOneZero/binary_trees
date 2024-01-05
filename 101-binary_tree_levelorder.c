@@ -12,20 +12,20 @@ void _func_on_level(const binary_tree_t *tree, int level, void (*func)(int));
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-    int tree_height, i;
+	int tree_height, i;
 
-    if (tree == NULL || func == NULL)
-        return;
+	if (tree == NULL || func == NULL)
+		return;
 
-    /*Get tree height*/
-    tree_height = _binary_tree_height(tree);
+	/*Get tree height*/
+	tree_height = _binary_tree_height(tree);
 
-    /*Iterate through all levels till you reach the height*/
-    for (i = 1; i <= tree_height; i++)
-    {
-        /*Call the function on each level*/
-        _func_on_level(tree, i, func);
-    }
+	/*Iterate through all levels till you reach the height*/
+	for (i = 1; i <= tree_height; i++)
+	{
+		/*Call the function on each level*/
+		_func_on_level(tree, i, func);
+	}
 }
 
 /**
@@ -36,12 +36,12 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
  */
 int _binary_tree_height(const binary_tree_t *tree)
 {
-    int lt_height = 0, rt_height = 0;
+	int lt_height = 0, rt_height = 0;
 
-    if (tree == NULL)
-    {
-        return (0);
-    }
+	if (tree == NULL)
+	{
+		return (0);
+	}
 
 	/*Recursively call the func to calc. the height*/
 	lt_height = _binary_tree_height(tree->left);
@@ -63,15 +63,15 @@ int _binary_tree_height(const binary_tree_t *tree)
 
 void _func_on_level(const binary_tree_t *tree, int level, void (*func)(int))
 {
-    if (tree == NULL)
-        return;
-        
-    if (level == 1)
-        func(tree->n);
-    else if (level > 1)
-    {
-        /*Call the function recursively*/
-        _func_on_level(tree->left, level - 1, func);
-        _func_on_level(tree->right, level - 1, func);
-    }
+	if (tree == NULL)
+		return;
+
+	if (level == 1)
+		func(tree->n);
+	else if (level > 1)
+	{
+		/*Call the function recursively*/
+		_func_on_level(tree->left, level - 1, func);
+		_func_on_level(tree->right, level - 1, func);
+	}
 }
