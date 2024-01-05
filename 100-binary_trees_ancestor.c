@@ -15,26 +15,23 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	if (first == NULL || second == NULL)
 		return (NULL);
 
+	/*Both point to the same node*/
+	if (first == second)
+		return ((binary_tree_t *)first);
+
 	parent1 = first->parent;
 	parent2 = second->parent;
 
-	/*Check if 'first' is a child of 'second'*/
-	/*Return 'first' or 'second' based on which is the parent*/
-	if ((first->left == second) || (first->right == second))
-		return ((binary_tree_t *)first);
-
-	if ((second->left == first) || (second->right == first))
-		return ((binary_tree_t *)second);
-
-	/*Is the parent of 'first' = the parent of 'second'?*/
-	if (parent1 == parent2)
-		return (parent1);
-	/*Recursively call the fuction on 'first' and parent or 'second'*/
-	return (binary_trees_ancestor(first, parent2));
-
-	/*Is the parent of 'second' = the parent of 'first'?*/
-	if (parent2 == parent1)
-		return (parent2);
-	/*Recursively call the function on 'second' and parent of 'fisrt'*/
-	return (binary_trees_ancestor(second, parent1));
+	/*Check if parents are the root node OR*/
+	/*If one of the nodes it the parent of the other OR*/
+	/*One parent exists and the other parent has no parent*/
+	if (parent1 == NULL || first == parent2 || (!parent1->parent && parent2 != NULL))
+	{
+		return (binary_trees_ancestor(first, parent2));
+	}
+	else if (parent2 == NULL || second == parent1 || (!parent2->parent && parent1 != NULL))
+	{
+		return (binary_trees_ancestor(parent1, second));
+	}
+	return (binary_trees_ancestor(parent1, parent2));
 }
